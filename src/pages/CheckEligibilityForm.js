@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, generatePath } from 'react-router-dom';
 
 export default class CheckEligibilityForm extends Component {
   constructor(props) {
@@ -16,9 +17,23 @@ export default class CheckEligibilityForm extends Component {
     };
   }
 
+  onClickSubmit(e) {
+    e.preventDefault();
+    console.log('submit form');
+    fetch('http://localhost:3001/cardlist', {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name: 'Alice' }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  }
+
   render() {
     return (
-      <form>
+      <form onSubmit={(e) => this.onClickSubmit(e)}>
         <div>
           <label>
             Title <select></select>
@@ -65,6 +80,20 @@ export default class CheckEligibilityForm extends Component {
             Your address
             <input />
           </label>
+        </div>
+
+        <div>
+          <Link
+            to={generatePath(
+              '/cardlist/employee_status=:status&income_range=:income',
+              {
+                status: 'student',
+                income: 1000,
+              }
+            )}
+          >
+            <button type="submit">Get my credit scores</button>
+          </Link>
         </div>
       </form>
     );

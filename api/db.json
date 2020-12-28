@@ -2,7 +2,12 @@
     "cards": [
         {"card_type": "Anywhere Card",
         "eligible_check": {},
-        "card_details": {}
+        "card_details": {
+            "apr": {"label": "APR", "value": "18%" },
+            "btod": {"label": "Balance Transfer Offer Duration", "value": 0}, 
+            "pod": {"label": "Purchase Offer Duration", "value": 2},
+            "credit": {"label": "Credit Available", "value": 1200} 
+        }
         },
         {"card_type": "Liquid Card",
         "eligible_check": {
