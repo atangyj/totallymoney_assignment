@@ -1,88 +1,93 @@
 import React, { Component } from 'react';
-import { Link, generatePath } from 'react-router-dom';
+import { generatePath } from 'react-router-dom';
+
+// Components
+import Layout from 'components/elements/Layout';
+import Form from 'components/elements/Form';
+import Select from 'components/elements/Select';
+import TextField from 'components/elements/TextField';
+import Link from 'components/elements/Link';
 
 export default class CheckEligibilityForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      formData: {
-        title: '',
-        firstName: '',
-        lastName: '',
-        dob: '',
-        employeeStatus: undefined,
-        annualIncome: undefined,
-        address: '',
-      },
+      title: '',
+      fname: '',
+      lname: '',
+      income: '',
+      employeeStatus: '',
+      dob: '',
     };
   }
 
-  onClickSubmit(e) {
-    e.preventDefault();
-    console.log('submit form');
-    fetch('http://localhost:3001/cardlist', {
-      method: 'POST', // or 'PUT'
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ name: 'Alice' }),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+  handleChange(e) {
+    const { name, value } = e.target;
+    console.log(e.target);
+    this.setState({ [name]: value });
   }
 
   render() {
+    const { title, fname, lname, income, employeeStatus, dob } = this.state;
     return (
-      <form onSubmit={(e) => this.onClickSubmit(e)}>
-        <div>
-          <label>
-            Title <select></select>
-          </label>
-        </div>
+      <Layout>
+        <Form className="eligibility-form">
+          <Select
+            name="title"
+            label="Title"
+            options={[
+              { label: 'Mr', value: 'Mr' },
+              { label: 'Mrs', value: 'Mrs' },
+              { label: 'Miss', value: 'Miss' },
+            ]}
+            onChange={(e) => this.handleChange(e)}
+            required
+          />
 
-        <div>
-          <label>
-            First name
-            <input />
-          </label>
-        </div>
+          <TextField
+            name="fname"
+            type="text"
+            label="First Name"
+            value={fname}
+            onChange={(e) => this.handleChange(e)}
+          />
 
-        <div>
-          <label>
-            Last name
-            <input />
-          </label>
-        </div>
+          <TextField
+            name="lname"
+            type="text"
+            label="Last Name"
+            value={lname}
+            onChange={(e) => this.handleChange(e)}
+          />
 
-        <div>
-          <label>
-            Date Of Birth
-            <input />
-          </label>
-        </div>
+          <TextField
+            name="dob"
+            type="text"
+            label="Date of Birth"
+            value={dob}
+            onChange={(e) => this.handleChange(e)}
+          />
 
-        <div>
-          <label>
-            What is your employee status?
-            <select></select>
-          </label>
-        </div>
+          <Select
+            name="employeeStatus"
+            label="What is your empployee status?"
+            options={[
+              { label: 'Full Time', value: 'ftime' },
+              { label: 'Part Time', value: 'ptime' },
+              { label: 'Student', value: 'student' },
+            ]}
+            value={employeeStatus}
+            onChange={(e) => this.handleChange(e)}
+          />
 
-        <div>
-          <label>
-            How much is your annual income?
-            <input />
-          </label>
-        </div>
+          <TextField
+            type="number"
+            name="income"
+            label="What is your annual income before tax?"
+            value={income}
+            onChange={(e) => this.handleChange(e)}
+          />
 
-        <div>
-          <label>
-            Your address
-            <input />
-          </label>
-        </div>
-
-        <div>
           <Link
             to={generatePath(
               '/cardlist/employee_status=:status&income_range=:income',
@@ -91,11 +96,12 @@ export default class CheckEligibilityForm extends Component {
                 income: 1000,
               }
             )}
+            bold={true}
           >
-            <button type="submit">Get my credit scores</button>
+            Check Eligibility
           </Link>
-        </div>
-      </form>
+        </Form>
+      </Layout>
     );
   }
 }

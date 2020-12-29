@@ -1,0 +1,16 @@
+@import 'css/variables';
+
+$module: "Link";
+
+.#{$module}{
+    display: block;
+    text-align: center;
+    line-height: $padding-std * 6;
+    
+    &.--bold {
+     border-radius: $btn-border-radius; 
+     background-color: grey;  
+     text-decoration: none;
+     color: #ffffff;
+    }
+}

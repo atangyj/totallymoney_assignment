@@ -1,0 +1,33 @@
+@import 'css/variables';
+@import 'css/breakpoints';
+
+.form {
+    font-size: $font-size-big;
+    
+    @include desktop {
+        margin: 0 30%;
+    }
+
+    .select, .text-field {
+        display: flex;
+        flex-direction: column;
+        box-shadow: none;
+        margin-bottom: $margin-std * 4;
+       
+    }
+
+    label {
+        margin-bottom: $margin-std;
+    }
+
+    input, select {
+        border: 1px solid #d8d8d8;
+        border-radius: $field-border-radius;
+        background-color: $lightGrey;
+        height: 40px;
+    }
+
+    > :nth-last-child(2) {
+        margin-bottom: $margin-std-big * 2;
+    }
+}
