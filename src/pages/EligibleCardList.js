@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
-import Card from 'components/Card';
+import Layout from 'components/elements/Layout';
+import Card from 'components/modules/Card';
 
 export default class EligibalCardList extends Component {
   constructor(props) {
@@ -31,13 +31,12 @@ export default class EligibalCardList extends Component {
     return isLoading ? (
       'Looking for your best matched cards...'
     ) : (
-      <div>
-        {cardlist.map((card, i) => (
-          <Link key={i} to={`/card_details/${card.card_type}`}>
-            <Card key={i} card_type={card.card_type} />
-          </Link>
-        ))}
-      </div>
+      <Layout>
+        {cardlist.map((card, i) => {
+          console.log(card);
+          return <Card key={i} card={card} toApply="" toDetail="" />;
+        })}
+      </Layout>
     );
   }
 }

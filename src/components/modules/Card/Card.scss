@@ -1,0 +1,56 @@
+@import "css/breakpoints";
+@import "css/variables";
+
+$module: "card";
+
+.#{$module}{
+    display: flex;
+    border-bottom: 1px solid $stdGrey;
+    
+    &__img-container{
+       
+        flex: 3;
+        img {
+            width: 100%;
+        }
+        
+    }
+
+    &__info{
+        flex: 7;
+        padding-right: $padding-std;
+        padding-left: $padding-std * 2;
+    }
+
+    &__name {
+       font-size: $font-size-big;
+       margin-bottom: $margin-std;
+       
+    }
+
+    &__feature {
+        font-size: $font-size-std;
+        color: $font-grey-std;
+        margin-bottom: $margin-std;
+
+        .fa-check {
+            font-size: $font-size-small;
+            margin-right: $margin-std-small;
+            color: rgb(0, 117, 235);
+        }
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+
+        .fa-chevron-right {
+            font-size: $font-size-small;
+            color: $font-grey-std;
+        }
+    }
+    
+    @include desktop {
+        flex-direction: row;
+    }
+}

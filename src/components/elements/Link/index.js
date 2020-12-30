@@ -9,7 +9,7 @@ const Link = ({ to, children, bold, className, ...rest }) => {
       to={to}
       className={`Link ${className || ''} ${bold ? '--bold' : ''}`}
     >
-      <span>{children}</span>
+      {children}
     </ReactRouterLink>
   );
 };

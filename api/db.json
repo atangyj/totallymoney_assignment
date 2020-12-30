@@ -1,25 +1,41 @@
 {
     "cards": [
-        {"card_type": "Anywhere Card",
+        {"card_type": "anywhere_card",
         "eligible_check": {},
         "card_details": {
+            "name": "Anywhere Card",
             "apr": {"label": "APR", "value": "18%" },
             "btod": {"label": "Balance Transfer Offer Duration", "value": 0}, 
             "pod": {"label": "Purchase Offer Duration", "value": 2},
-            "credit": {"label": "Credit Available", "value": 1200} 
-        }
+            "credit_score": 1200
+            },
+        "card_features": ["No fee on oversea purchases", "Accepted worldwide", "Worldwide travel insurance"]
         },
-        {"card_type": "Liquid Card",
+        {"card_type": "liquid_card",
         "eligible_check": {
             "income_range": {"min": 16000, "max": 100000000}
-        },
-        "card_details": {}
             },
-        {"card_type": "Student Card",
+        "card_details": {
+            "name": "Liquid Card",
+            "apr": {"label": "APR", "value": "18%" },
+            "btod": {"label": "Balance Transfer Offer Duration", "value": 0}, 
+            "pod": {"label": "Purchase Offer Duration", "value": 2},
+            "credit_score": 1800
+            },
+        "card_features": ["Double points for online shopping", "Withdraw up to 800 each month", "Unlimited foreign exchange"]
+            },
+        {"card_type": "student_card",
         "eligible_check": {
             "employee_status": ["student"]
-        },
-        "card_details": {}
+            },
+        "card_details": {
+            "name": "Student Card",
+            "apr": {"label": "APR", "value": "18%" },
+            "btod": {"label": "Balance Transfer Offer Duration", "value": 0}, 
+            "pod": {"label": "Purchase Offer Duration", "value": 2},
+            "credit_score": 1000
+            },
+        "card_features": ["Enjoy 100 days return windows", "Student discount immediately"]
         }
     ]
 }
