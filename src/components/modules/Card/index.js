@@ -28,6 +28,7 @@ const Card = ({ card, actionBtn, selectable }) => {
           ))}
         </ul>
       </div>
+
       <div className="card__btn">
         {selectable ? (
           actionBtn
@@ -41,6 +42,7 @@ const Card = ({ card, actionBtn, selectable }) => {
           </Link>
         )}
       </div>
+      <div className="card__credit">{card_details.credit_score} credits</div>
     </div>
   );
 };

@@ -7,6 +7,7 @@ $module: "card";
     display: flex;
     border-bottom: 1px solid $grey-std;
     padding: $margin-std * 2 0;
+    position: relative;
 
     @include desktop {
         padding: $margin-std-big 0;
@@ -44,6 +45,12 @@ $module: "card";
             color: $color-highlight;
         }
 
+    }
+
+    &__credit {
+        position: absolute;
+        right: 0;
+        font-size: $font-size-std;
     }
 
     &__btn {

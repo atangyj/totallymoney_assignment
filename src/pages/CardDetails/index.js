@@ -21,7 +21,6 @@ export default class CardDetails extends Component {
       .then((resp) => resp.json())
       .then((data) => {
         this.setState({ card: data[0] });
-        console.log(this.state.card);
       });
   }
   render() {
@@ -45,7 +44,6 @@ export default class CardDetails extends Component {
 
                 <div className="card-key-facts">
                   {key_facts.map((fact, i) => {
-                    console.log(fact);
                     return (
                       <div className="card-fact" key={i}>
                         <h2 className="card-fact__label">{fact.label}</h2>

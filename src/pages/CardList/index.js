@@ -46,7 +46,6 @@ export default class EligibalCardList extends Component {
   }
 
   handleSelect(i, canSelect) {
-    console.log(i);
     const { cardlist } = this.state;
     const newState = cardlist.map((card, index) => {
       if (index === i) {
