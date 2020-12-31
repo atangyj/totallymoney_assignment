@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Page from 'components/elements/Page';
 import Layout from 'components/elements/Layout';
 import Board from 'components/elements/Board';
 import cardImages from 'images/cards';
@@ -32,67 +33,71 @@ export default class CardDetails extends Component {
       .image;
 
     return (
-      <Layout>
-        {card_details ? (
-          <div className="card-details">
-            <div className="card-details__section">
-              <div className="card-container">
-                <img src={imgSrc} alt={card_type} />
-                <h2 className="card-name">{card_details.name}</h2>
+      <Page>
+        <Layout>
+          {card_details ? (
+            <div className="card-details">
+              <div className="card-details__section">
+                <div className="card-container">
+                  <img src={imgSrc} alt={card_type} />
+                  <h2 className="card-name">{card_details.name}</h2>
+                </div>
+
+                <div className="card-key-facts">
+                  {key_facts.map((fact, i) => {
+                    console.log(fact);
+                    return (
+                      <div className="card-fact" key={i}>
+                        <h2 className="card-fact__label">{fact.label}</h2>
+                        <p className="card-fact__value">{fact.value}</p>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
 
-              <div className="card-key-facts">
-                {key_facts.map((fact, i) => {
-                  console.log(fact);
-                  return (
-                    <div className="card-fact" key={i}>
-                      <h2 className="card-fact__label">{fact.label}</h2>
-                      <p className="card-fact__value">{fact.value}</p>
-                    </div>
-                  );
-                })}
-              </div>
+              <Board title="Featured Benefits" className="benefits">
+                <ul>
+                  {card_features.map((feature, i) => (
+                    <li key={i} className="card__benefit">
+                      <i className="fas fa-check"></i>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </Board>
+
+              <Board title="Keep in Mind" className="drawbacks">
+                <ul>
+                  {card_drawbacks.map((drawback, i) => (
+                    <li key={i} className="card__drawback">
+                      <i className="fas fa-check"></i>
+                      {drawback}
+                    </li>
+                  ))}
+                </ul>
+              </Board>
+
+              <Board title="Eligibility" className="eligibility">
+                <ul>
+                  {eligibility.map((eligible, i) => (
+                    <li key={i} className="eligible__list">
+                      <p className="eligible__criterion">
+                        {eligible.criterion}
+                      </p>
+                      <span className="eligible__value">{eligible.value}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Board>
+
+              {/* <button onClick={() => this.props.history.goBack()}>Back</button> */}
             </div>
-
-            <Board title="Featured Benefits" className="benefits">
-              <ul>
-                {card_features.map((feature, i) => (
-                  <li key={i} className="card__benefit">
-                    <i className="fas fa-check"></i>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </Board>
-
-            <Board title="Keep in Mind" className="drawbacks">
-              <ul>
-                {card_drawbacks.map((drawback, i) => (
-                  <li key={i} className="card__drawback">
-                    <i className="fas fa-check"></i>
-                    {drawback}
-                  </li>
-                ))}
-              </ul>
-            </Board>
-
-            <Board title="Eligibility" className="eligibility">
-              <ul>
-                {eligibility.map((eligible, i) => (
-                  <li key={i} className="eligible__list">
-                    <p className="eligible__criterion">{eligible.criterion}</p>
-                    <span className="eligible__value">{eligible.value}</span>
-                  </li>
-                ))}
-              </ul>
-            </Board>
-
-            {/* <button onClick={() => this.props.history.goBack()}>Back</button> */}
-          </div>
-        ) : (
-          'Loading'
-        )}
-      </Layout>
+          ) : (
+            'Loading'
+          )}
+        </Layout>
+      </Page>
     );
   }
 }

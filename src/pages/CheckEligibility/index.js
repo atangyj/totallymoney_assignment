@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { generatePath } from 'react-router-dom';
 
 // Components
+import Page from 'components/elements/Page';
 import Layout from 'components/elements/Layout';
 import Form from 'components/elements/Form';
 import Select from 'components/elements/Select';
@@ -53,78 +54,70 @@ export default class CheckEligibilityForm extends Component {
   render() {
     const { title, fname, lname, income, employeeStatus, dob } = this.state;
     return (
-      <Layout>
-        <Header>
-          FREE FROM FINANCIAL STRESS <br />
-          WITH THE RIGHT CARD
-        </Header>
-        <form className="form eligibility-form" ref={this.formRef}>
-          <Select
-            name="title"
-            label="Title"
-            value={title}
-            options={[
-              { label: 'Mr', value: 'Mr' },
-              { label: 'Mrs', value: 'Mrs' },
-              { label: 'Miss', value: 'Miss' },
-            ]}
-            onChange={(e) => this.handleChange(e)}
-            required
-          />
+      <Page>
+        <Layout>
+          <Header>
+            Free From Financial Stress <br />
+            With The Right Card
+          </Header>
+          <form className="form eligibility-form" ref={this.formRef}>
+            <Select
+              name="title"
+              label="Title"
+              value={title}
+              options={[
+                { label: 'Mr', value: 'Mr' },
+                { label: 'Mrs', value: 'Mrs' },
+                { label: 'Miss', value: 'Miss' },
+              ]}
+              onChange={(e) => this.handleChange(e)}
+              required
+            />
 
-          <TextField
-            name="fname"
-            type="text"
-            label="First Name"
-            value={fname}
-            onChange={(e) => this.handleChange(e)}
-            required
-          />
+            <TextField
+              name="fname"
+              type="text"
+              label="First Name"
+              value={fname}
+              onChange={(e) => this.handleChange(e)}
+              required
+            />
 
-          <TextField
-            name="lname"
-            type="text"
-            label="Last Name"
-            value={lname}
-            onChange={(e) => this.handleChange(e)}
-            required
-          />
+            <TextField
+              name="lname"
+              type="text"
+              label="Last Name"
+              value={lname}
+              onChange={(e) => this.handleChange(e)}
+              required
+            />
 
-          <TextField
-            name="dob"
-            type="text"
-            label="Date of Birth"
-            value={dob}
-            onChange={(e) => this.handleChange(e)}
-            required
-            placeholder="YYYY/MM/DD"
-          />
+            <Select
+              name="employeeStatus"
+              label="What is your empployee status?"
+              options={[
+                { label: 'Full Time', value: 'ftime' },
+                { label: 'Part Time', value: 'ptime' },
+                { label: 'Student', value: 'student' },
+              ]}
+              value={employeeStatus}
+              onChange={(e) => this.handleChange(e)}
+              required
+            />
 
-          <Select
-            name="employeeStatus"
-            label="What is your empployee status?"
-            options={[
-              { label: 'Full Time', value: 'ftime' },
-              { label: 'Part Time', value: 'ptime' },
-              { label: 'Student', value: 'student' },
-            ]}
-            value={employeeStatus}
-            onChange={(e) => this.handleChange(e)}
-            required
-          />
+            <TextField
+              type="number"
+              name="income"
+              label="What is your annual income before tax?"
+              value={income}
+              onChange={(e) => this.handleChange(e)}
+              required
+            />
 
-          <TextField
-            type="number"
-            name="income"
-            label="What is your annual income before tax?"
-            value={income}
-            onChange={(e) => this.handleChange(e)}
-            required
-          />
-
-          <Button onClick={(e) => this.handleClick(e)}>Check Validity</Button>
-        </form>
-      </Layout>
+            <Button onClick={(e) => this.handleClick(e)}>Check Validity</Button>
+          </form>
+        </Layout>
+      </Page>
     );
   }
 }

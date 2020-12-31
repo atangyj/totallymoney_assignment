@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Page from 'components/elements/Page';
 import Layout from 'components/elements/Layout';
 import Card from 'components/modules/Card';
 import Header from 'components/elements/Header';
@@ -101,30 +102,32 @@ export default class EligibalCardList extends Component {
     return isLoading ? (
       'Looking for your best matched cards...'
     ) : (
-      <Layout className="cardList">
-        <Header>Select Cards to See How Much Credits You Can Earn</Header>
+      <Page>
+        <Layout className="cardList">
+          <Header>Select Cards to See How Much Credits You Can Earn</Header>
 
-        <div className="cardlist__action-bar">
-          <div className="cardlist__action-result">
-            <span>Credits </span>
-            {this.setCredits()}
+          <div className="cardlist__action-bar">
+            <div className="cardlist__action-result">
+              <span>Credits </span>
+              {this.setCredits()}
+            </div>
+            <div className="cardlist__action">
+              <Button
+                type="button"
+                onClick={() => {
+                  this.handleClick();
+                }}
+              >
+                {selectable ? 'Cancel' : 'Select'}
+              </Button>
+            </div>
           </div>
-          <div className="cardlist__action">
-            <Button
-              type="button"
-              onClick={() => {
-                this.handleClick();
-              }}
-            >
-              {selectable ? 'Cancel' : 'Select'}
-            </Button>
-          </div>
-        </div>
 
-        <div className="cardlist__list">
-          {cardlist.length === 0 ? 'No cards found' : list}
-        </div>
-      </Layout>
+          <div className="cardlist__list">
+            {cardlist.length === 0 ? 'No cards found' : list}
+          </div>
+        </Layout>
+      </Page>
     );
   }
 }

@@ -1,0 +1,11 @@
+@import "css/variables";
+
+.page {
+    nav {
+        padding: $padding-std * 2;
+        color: #fff;
+        font-weight: 900;
+        background-color: $color-highlight;
+        margin-bottom: $margin-std-big;
+    }
+}
