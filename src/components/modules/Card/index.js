@@ -2,11 +2,12 @@ import React from 'react';
 import { generatePath } from 'react-router-dom';
 
 import Link from 'components/elements/Link';
+import Button from 'components/elements/Button';
 import cardImages from 'images/cards';
 
 import './Card.scss';
 
-const Card = ({ card }) => {
+const Card = ({ card, actionBtn, selectable }) => {
   const { card_type, card_details, card_features } = card;
   const imgSrc = cardImages.filter((card) => card.type === card_type)[0].image;
 
@@ -28,13 +29,17 @@ const Card = ({ card }) => {
         </ul>
       </div>
       <div className="card__btn">
-        <Link
-          to={generatePath('/card_details/:card_type', {
-            card_type: card_type,
-          })}
-        >
-          <i className="fas fa-chevron-right"></i>
-        </Link>
+        {selectable ? (
+          actionBtn
+        ) : (
+          <Link
+            to={generatePath('/card_details/:card_type', {
+              card_type: card_type,
+            })}
+          >
+            <i className="fas fa-chevron-right"></i>
+          </Link>
+        )}
       </div>
     </div>
   );

@@ -1,8 +1,22 @@
 @import "css/variables";
 @import "css/breakpoints";
 
-$module: "CardList";
+$module: "cardlist";
 
 .#{$module}{
-   
+  &__action-bar {
+      border-bottom: 1px solid black;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: $font-size-std;
+  }
+
+   &__action{
+       .btn {
+        width: auto;
+        color: black;
+        background-color: transparent;
+       }
+   }
 }

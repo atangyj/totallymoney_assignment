@@ -23,7 +23,7 @@ $module: "card";
 
     &__info{
         flex: 7;
-        padding-right: $padding-std;
+        padding-right: $padding-std * 2;
         padding-left: $padding-std * 2;
     }
 
@@ -41,7 +41,7 @@ $module: "card";
         .fa-check {
             font-size: $font-size-small;
             margin-right: $margin-std-small;
-            color: $color-highlisht;
+            color: $color-highlight;
         }
 
     }
@@ -49,13 +49,28 @@ $module: "card";
     &__btn {
         display: flex;
         align-items: center;
+        .btn {
+            background-color: transparent;
+            border: none;
+        }
+        .fa-plus, .fa-minus {
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            border-radius: 10px;
+            background-color: $color-highlight;
+            color: #fff;
+        }
 
         .fa-chevron-right {
             padding: $padding-std;
             font-size: $font-size-std;
             color: $font-grey-std;
+            width: 20px;
+            height: 20px;
         }
     }
+
     
     @include desktop {
         flex-direction: row;

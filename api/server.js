@@ -57,15 +57,14 @@ server.use((req, res, next) => {
         return results.every((result) => result);
       });
       res.jsonp({ cardlist: eligiblCards });
-    }
-
-    if (req.url.search(/^\/card_details\/(.*)/) !== -1) {
+    } else if (req.url.search(/^\/card_details\/(.*)/) !== -1) {
       const cardType = req.url.split('/')[2].replace('%20', ' ');
       const { cards } = db;
       const card = cards.filter((card) => card.card_type === cardType);
       res.jsonp({ card: card[0] });
+    } else {
+      next();
     }
-    next();
   } else {
     // Continue to JSON Server router
     next();
