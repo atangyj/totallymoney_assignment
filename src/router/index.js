@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 import CheckEligibilityForm from 'pages/CheckEligibilityForm';
-import EligibleCardList from 'pages/EligibleCardList';
+import EligibleCardList from 'pages/CardList';
 import CardDetails from 'pages/CardDetails';
 
 export default function TotallyMoneyRouter() {
@@ -28,10 +28,7 @@ export default function TotallyMoneyRouter() {
           component={EligibleCardList}
         />
 
-        <Route
-          path="/card_details/:card_type"
-          render={(props) => <CardDetails {...props} />}
-        />
+        <Route path="/card_details/:card_type" component={CardDetails} />
       </Switch>
     </Router>
   );

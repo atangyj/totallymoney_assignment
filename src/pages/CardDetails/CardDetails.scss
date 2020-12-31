@@ -1,0 +1,96 @@
+@import 'css/variables';
+@import 'css/breakpoints';
+
+$module: "card-details";
+
+.#{$module}{
+    display: flex;
+    flex-direction: column;
+
+    .card-container {
+        text-align: center;
+        margin-bottom: $margin-std * 2;
+        img {
+            width: 60%;
+            margin-bottom: $margin-std-small;
+        }
+
+        @include desktop {
+            img {
+                max-width: 240px;
+            }
+        }
+    }
+
+    .card-name {
+        font-size: $font-size-big;
+    }
+
+    .card-key-facts {
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: $margin-std-big;
+    }
+
+    .card-fact {
+        // flex: 1 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+    }
+
+    .card-fact__label {
+        font-size: $font-size-std;
+        color: $font-grey-std;
+        font-weight: 300;
+    }
+
+    .card-fact__value {
+        font-weight: bold;
+        font-size: $font-size-small * 2;
+        margin-bottom: $margin-std;
+    }
+
+    .board {
+        margin-bottom: $margin-std-big;
+        
+        .fa-check {
+            margin-right: $margin-std;
+        }
+    }
+
+    .board__title {
+        margin-bottom: $margin-std;
+    }
+
+    .card__benefit {
+        .fa-check {
+            color:$color-highlisht;
+        }
+    }
+
+    .card__drawback {
+        .fa-check {
+            color:$color-warning;
+        }
+    }
+
+    .eligibility {
+        border: none;
+        border-radius: 0;
+        border-top: 1px solid $grey-std;
+        box-shadow: none;
+    }
+
+    .eligible__list{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .eligible__value {
+        color: black;
+    }
+
+
+}

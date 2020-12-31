@@ -4,25 +4,29 @@
         "eligible_check": {},
         "card_details": {
             "name": "Anywhere Card",
-            "apr": {"label": "APR", "value": "18%" },
-            "btod": {"label": "Balance Transfer Offer Duration", "value": 0}, 
-            "pod": {"label": "Purchase Offer Duration", "value": 2},
+            "key_facts": [ {"label": "APR", "value": "18%" },
+                {"label": "Balance Transfer Offer", "value": "26 month"}, 
+                {"label": "Purchase Offer", "value": "26 month"}],
             "credit_score": 1200
             },
-        "card_features": ["No fee on oversea purchases", "Accepted worldwide", "Worldwide travel insurance"]
-        },
+        "card_features": ["No fee on oversea purchases", "Accepted worldwide", "Worldwide travel insurance"],
+        "card_drawbacks": ["Limited balance transfer after 26 months", "High interest rate up to 49%"],
+        "eligibility": [{"criterion": "Age", "value": "Over 18" }, {"criterion": "Live in the UK for", "value": "5 yrs" }, {"criterion": "No criminal record", "value": "record" }]
+    },
         {"card_type": "liquid_card",
         "eligible_check": {
             "income_range": {"min": 16000, "max": 100000000}
             },
         "card_details": {
             "name": "Liquid Card",
-            "apr": {"label": "APR", "value": "18%" },
-            "btod": {"label": "Balance Transfer Offer Duration", "value": 0}, 
-            "pod": {"label": "Purchase Offer Duration", "value": 2},
+            "key_facts": [ {"label": "APR", "value": "18%" },
+                {"label": "Balance Transfer Offer", "value": "26 month"}, 
+                {"label": "Purchase Offer", "value": "26 month"}],
             "credit_score": 1800
             },
-        "card_features": ["Double points for online shopping", "Withdraw up to 800 each month", "Unlimited foreign exchange"]
+        "card_features": ["Double points for online shopping", "Withdraw up to 800 each month", "Unlimited foreign exchange"],
+        "card_drawbacks": ["Limited balance transfer after 26 months", "High interest rate up to 49%"],
+        "eligibility": [{"criterion": "Age", "value": "Over 18" }, {"criterion": "Live in the UK for", "value": "5 yrs" }, {"criterion": "No criminal record", "value": "record" }]
             },
         {"card_type": "student_card",
         "eligible_check": {
@@ -30,12 +34,14 @@
             },
         "card_details": {
             "name": "Student Card",
-            "apr": {"label": "APR", "value": "18%" },
-            "btod": {"label": "Balance Transfer Offer Duration", "value": 0}, 
-            "pod": {"label": "Purchase Offer Duration", "value": 2},
+            "key_facts": [ {"label": "APR", "value": "18%" },
+                {"label": "Balance Transfer Offer", "value": "26 month"}, 
+                {"label": "Purchase Offer", "value": "26 month"}],
             "credit_score": 1000
             },
-        "card_features": ["Enjoy 100 days return windows", "Student discount immediately"]
+        "card_features": ["Enjoy 100 days return windows", "Student discount immediately"],
+        "card_drawbacks": ["Limited balance transfer after 26 months", "High interest rate up to 49%"],
+        "eligibility": [{"criterion": "Age", "value": "Over 18" }, {"criterion": "Live in the UK for", "value": "5 yrs" }, {"criterion": "No criminal record", "value": "record" }]
         }
     ]
 }

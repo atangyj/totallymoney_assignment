@@ -21,9 +21,9 @@
     }
 
     input, select {
-        border: 1px solid $stdGrey;
-        border-radius: $field-border-radius;
-        background-color: $lightGrey;
+        border: 1px solid $grey-std;
+        border-radius: $border-radius-small;
+        background-color: $grey-light;
         height: 40px;
     }
 

@@ -5,7 +5,12 @@ $module: "card";
 
 .#{$module}{
     display: flex;
-    border-bottom: 1px solid $stdGrey;
+    border-bottom: 1px solid $grey-std;
+    padding: $margin-std * 2 0;
+
+    @include desktop {
+        padding: $margin-std-big 0;
+    }
     
     &__img-container{
        
@@ -36,8 +41,9 @@ $module: "card";
         .fa-check {
             font-size: $font-size-small;
             margin-right: $margin-std-small;
-            color: rgb(0, 117, 235);
+            color: $color-highlisht;
         }
+
     }
 
     &__btn {

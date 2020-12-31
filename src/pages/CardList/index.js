@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Layout from 'components/elements/Layout';
 import Card from 'components/modules/Card';
 
+import './CardList.scss';
+
 export default class EligibalCardList extends Component {
   constructor(props) {
     super(props);
@@ -31,7 +33,7 @@ export default class EligibalCardList extends Component {
     return isLoading ? (
       'Looking for your best matched cards...'
     ) : (
-      <Layout>
+      <Layout className="CardList">
         {cardlist.map((card, i) => {
           console.log(card);
           return <Card key={i} card={card} toApply="" toDetail="" />;

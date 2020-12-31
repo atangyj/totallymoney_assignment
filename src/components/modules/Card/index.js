@@ -1,22 +1,14 @@
 import React from 'react';
+import { generatePath } from 'react-router-dom';
 
 import Link from 'components/elements/Link';
-import LiquidCreditCard from 'images/credit_card_ad.png';
-import StudentCard from 'images/credit_card_st.png';
-import AnywhereCard from 'images/credit_card_travel.png';
+import cardImages from 'images/cards';
 
 import './Card.scss';
 
-const cards = [
-  { type: 'liquid_card', image: LiquidCreditCard },
-  { type: 'student_card', image: StudentCard },
-  { type: 'anywhere_card', image: AnywhereCard },
-];
-
-const Card = ({ card, to, toApply, toDetail }) => {
+const Card = ({ card }) => {
   const { card_type, card_details, card_features } = card;
-  const imgSrc = cards.filter((card) => card.type === card_type)[0].image;
-  console.log('card', card_features);
+  const imgSrc = cardImages.filter((card) => card.type === card_type)[0].image;
 
   return (
     <div className="card">
@@ -36,7 +28,13 @@ const Card = ({ card, to, toApply, toDetail }) => {
         </ul>
       </div>
       <div className="card__btn">
-        <i className="fas fa-chevron-right"></i>
+        <Link
+          to={generatePath('/card_details/:card_type', {
+            card_type: card_type,
+          })}
+        >
+          <i className="fas fa-chevron-right"></i>
+        </Link>
       </div>
     </div>
   );

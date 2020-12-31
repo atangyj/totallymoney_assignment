@@ -1,6 +1,5 @@
 $field-width: 200px;
 $field-height: 30px;
-$field-border-radius: 4px;
 
 $btn-border-radius: 24px;
 
@@ -10,10 +9,16 @@ $margin-std-small: 4px;
 
 $padding-std: 8px;
 
+$border-radius-small: 4px;
+
 $font-size-std: 14px;
-$font-size-big: 16px;
+$font-size-big: 24px;
 $font-size-small: 10px;
 $font-grey-std: #8B959E;
 
-$lightGrey: #F6F7F8;
-$stdGrey: #d8d8d8
+$grey-light: #F6F7F8;
+$grey-std: #d8d8d8;
+$grey-dark: grey;
+
+$color-highlisht: rgb(0, 117, 235);
+$color-warning: #F7138E;
