@@ -3,17 +3,17 @@
 
 .form {
     font-size: $font-size-big;
+    font-weight: 400;
     
     @include desktop {
-        margin: 0 30%;
+        margin: 0 20%;
     }
 
     .select, .text-field {
         display: flex;
         flex-direction: column;
         box-shadow: none;
-        margin-bottom: $margin-std * 4;
-       
+        margin-bottom: $margin-std * 4; 
     }
 
     label {

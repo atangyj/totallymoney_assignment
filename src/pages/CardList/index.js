@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Layout from 'components/elements/Layout';
 import Card from 'components/modules/Card';
+import Header from 'components/elements/Header';
 
 import './CardList.scss';
 
@@ -34,6 +35,7 @@ export default class EligibalCardList extends Component {
       'Looking for your best matched cards...'
     ) : (
       <Layout className="CardList">
+        <Header>Select Cards to See How Much Credits You Can Earn</Header>
         {cardlist.map((card, i) => {
           console.log(card);
           return <Card key={i} card={card} toApply="" toDetail="" />;

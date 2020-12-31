@@ -21,6 +21,9 @@ const Select = ({
         onChange={onChange}
         {...rest}
       >
+        <option className="select__option" value="">
+          Please select
+        </option>
         {options.map((option, i) => (
           <option className="select__option" value={option.value} key={i}>
             {option.label}

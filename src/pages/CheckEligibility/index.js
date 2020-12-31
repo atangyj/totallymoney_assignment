@@ -1,3 +1,4 @@
+// Library
 import React, { Component } from 'react';
 import { generatePath } from 'react-router-dom';
 
@@ -6,7 +7,10 @@ import Layout from 'components/elements/Layout';
 import Form from 'components/elements/Form';
 import Select from 'components/elements/Select';
 import TextField from 'components/elements/TextField';
-import Link from 'components/elements/Link';
+import Button from 'components/elements/Button';
+import Header from 'components/elements/Header';
+
+import './CheckEligibility.scss';
 
 export default class CheckEligibilityForm extends Component {
   constructor(props) {
@@ -19,22 +23,46 @@ export default class CheckEligibilityForm extends Component {
       employeeStatus: '',
       dob: '',
     };
+    this.formRef = React.createRef();
   }
 
   handleChange(e) {
     const { name, value } = e.target;
-    console.log(e.target);
     this.setState({ [name]: value });
+  }
+
+  handleClick(e) {
+    if (this.formRef.current.checkValidity()) {
+      e.preventDefault();
+      this.triggerLink();
+    }
+  }
+
+  triggerLink() {
+    const { income, employeeStatus } = this.state;
+    const path = generatePath(
+      '/cardlist/employee_status=:status&income_range=:income',
+      {
+        status: employeeStatus,
+        income: income,
+      }
+    );
+    this.props.history.push(path);
   }
 
   render() {
     const { title, fname, lname, income, employeeStatus, dob } = this.state;
     return (
       <Layout>
-        <Form className="eligibility-form">
+        <Header>
+          FREE FROM FINANCIAL STRESS <br />
+          WITH THE RIGHT CARD
+        </Header>
+        <form className="form eligibility-form" ref={this.formRef}>
           <Select
             name="title"
             label="Title"
+            value={title}
             options={[
               { label: 'Mr', value: 'Mr' },
               { label: 'Mrs', value: 'Mrs' },
@@ -50,6 +78,7 @@ export default class CheckEligibilityForm extends Component {
             label="First Name"
             value={fname}
             onChange={(e) => this.handleChange(e)}
+            required
           />
 
           <TextField
@@ -58,6 +87,7 @@ export default class CheckEligibilityForm extends Component {
             label="Last Name"
             value={lname}
             onChange={(e) => this.handleChange(e)}
+            required
           />
 
           <TextField
@@ -66,6 +96,8 @@ export default class CheckEligibilityForm extends Component {
             label="Date of Birth"
             value={dob}
             onChange={(e) => this.handleChange(e)}
+            required
+            placeholder="YYYY/MM/DD"
           />
 
           <Select
@@ -78,6 +110,7 @@ export default class CheckEligibilityForm extends Component {
             ]}
             value={employeeStatus}
             onChange={(e) => this.handleChange(e)}
+            required
           />
 
           <TextField
@@ -86,21 +119,11 @@ export default class CheckEligibilityForm extends Component {
             label="What is your annual income before tax?"
             value={income}
             onChange={(e) => this.handleChange(e)}
+            required
           />
 
-          <Link
-            to={generatePath(
-              '/cardlist/employee_status=:status&income_range=:income',
-              {
-                status: 'student',
-                income: 1000,
-              }
-            )}
-            bold={true}
-          >
-            Check Eligibility
-          </Link>
-        </Form>
+          <Button onClick={(e) => this.handleClick(e)}>Check Validity</Button>
+        </form>
       </Layout>
     );
   }

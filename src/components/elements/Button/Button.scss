@@ -1,0 +1,13 @@
+@import "css/variables";
+
+$module: "btn";
+
+.#{$module} {
+    border-radius: $btn-border-radius;
+    width: 100%;
+    border: none;
+    background-color: $color-highlisht;
+    color: #fff;
+    font-size: $font-size-std;
+    padding: $padding-std*2 0;
+}

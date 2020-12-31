@@ -51,7 +51,8 @@ $module: "card";
         align-items: center;
 
         .fa-chevron-right {
-            font-size: $font-size-small;
+            padding: $padding-std;
+            font-size: $font-size-std;
             color: $font-grey-std;
         }
     }

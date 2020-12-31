@@ -3,11 +3,11 @@
 $module: "layout";
 
 .#{$module}{
-    margin: 10px 15px;
+    margin: 0 15px;
 
     @include desktop {
-        width: 70%;
-        margin: 50px auto;
+        width: 50%;
+        margin: 0 auto;
     }
    
 }

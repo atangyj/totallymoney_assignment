@@ -7,6 +7,15 @@ $module: "card-details";
     display: flex;
     flex-direction: column;
 
+    &__section {
+
+        @include desktop {
+            display: flex;
+            align-items: center;
+        }
+       
+    }
+
     .card-container {
         text-align: center;
         margin-bottom: $margin-std * 2;
@@ -30,6 +39,10 @@ $module: "card-details";
         display: flex;
         justify-content: space-evenly;
         margin-bottom: $margin-std-big;
+
+        @include desktop {
+            flex-grow: 1;
+        }
     }
 
     .card-fact {

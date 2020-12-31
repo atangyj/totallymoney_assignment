@@ -35,21 +35,23 @@ export default class CardDetails extends Component {
       <Layout>
         {card_details ? (
           <div className="card-details">
-            <div className="card-container">
-              <img src={imgSrc} alt={card_type} />
-              <h2 className="card-name">{card_details.name}</h2>
-            </div>
+            <div className="card-details__section">
+              <div className="card-container">
+                <img src={imgSrc} alt={card_type} />
+                <h2 className="card-name">{card_details.name}</h2>
+              </div>
 
-            <div className="card-key-facts">
-              {key_facts.map((fact, i) => {
-                console.log(fact);
-                return (
-                  <div className="card-fact" key={i}>
-                    <h2 className="card-fact__label">{fact.label}</h2>
-                    <p className="card-fact__value">{fact.value}</p>
-                  </div>
-                );
-              })}
+              <div className="card-key-facts">
+                {key_facts.map((fact, i) => {
+                  console.log(fact);
+                  return (
+                    <div className="card-fact" key={i}>
+                      <h2 className="card-fact__label">{fact.label}</h2>
+                      <p className="card-fact__value">{fact.value}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
 
             <Board title="Featured Benefits" className="benefits">

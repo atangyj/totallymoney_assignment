@@ -6,7 +6,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-import CheckEligibilityForm from 'pages/CheckEligibilityForm';
+import CheckEligibility from 'pages/CheckEligibility';
 import EligibleCardList from 'pages/CardList';
 import CardDetails from 'pages/CardDetails';
 
@@ -16,11 +16,7 @@ export default function TotallyMoneyRouter() {
       <Switch>
         <Redirect exact from="/" to="/check_eligibility" />
 
-        <Route
-          exact
-          path="/check_eligibility"
-          component={CheckEligibilityForm}
-        />
+        <Route exact path="/check_eligibility" component={CheckEligibility} />
 
         <Route
           exact

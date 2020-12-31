@@ -1,0 +1,14 @@
+@import "css/breakpoints";
+@import "css/variables";
+
+.header {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 40px 0;
+
+    @include desktop {
+        font-size: 32px;
+    }
+}
