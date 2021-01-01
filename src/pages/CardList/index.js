@@ -20,8 +20,8 @@ export default class EligibalCardList extends Component {
 
   componentDidMount() {
     this.setState({ isLoading: true });
-    const url = this.props.match.url.replace(/cardlist\//, 'check-eligible?');
-    fetch(`http://localhost:3001${url}`)
+    const qureries = this.props.location.search;
+    fetch(`http://localhost:3001/check-eligible${qureries}`)
       .then((resp) => resp.json())
       .then((data) => {
         const cardsWithStatus = this.addSelectStatusToCards(data.cardlist);

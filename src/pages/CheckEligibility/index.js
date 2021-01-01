@@ -42,7 +42,7 @@ export default class CheckEligibilityForm extends Component {
   triggerLink() {
     const { income, employeeStatus } = this.state;
     const path = generatePath(
-      '/cardlist/employee_status=:status&income_range=:income',
+      '/cardlist?employee_status=:status&income_range=:income',
       {
         status: employeeStatus,
         income: income,

@@ -8,7 +8,7 @@ import {
 import './App.scss';
 
 import CheckEligibility from 'pages/CheckEligibility';
-import EligibleCardList from 'pages/CardList';
+import CardList from 'pages/CardList';
 import CardDetails from 'pages/CardDetails';
 
 function App() {
@@ -19,11 +19,7 @@ function App() {
 
         <Route exact path="/check_eligibility" component={CheckEligibility} />
 
-        <Route
-          exact
-          path="/cardlist/employee_status=:status&income_range=:income"
-          component={EligibleCardList}
-        />
+        <Route path="/cardlist" component={CardList} />
 
         <Route path="/card_details/:card_type" component={CardDetails} />
       </Switch>

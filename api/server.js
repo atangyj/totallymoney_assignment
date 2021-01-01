@@ -10,11 +10,7 @@ server.use(middlewares);
 server.use(jsonServer.bodyParser);
 server.use((req, res, next) => {
   if (req.method === 'GET') {
-    if (
-      req.url.search(
-        /^\/check-eligible\?employee_status=(.*)\&income_range=(.*)/
-      ) !== -1
-    ) {
+    if (req.url.search(/^\/check-eligible/) !== -1) {
       const parseURL = (url) => {
         const pattern = /\?(.*)\b/;
         const match = pattern.exec(req.url)[1];
