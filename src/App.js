@@ -11,8 +11,6 @@ import CheckEligibility from 'pages/CheckEligibility';
 import EligibleCardList from 'pages/CardList';
 import CardDetails from 'pages/CardDetails';
 
-import TotallyMoneyRouter from './router';
-
 function App() {
   return (
     <Router>
