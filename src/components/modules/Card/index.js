@@ -12,16 +12,18 @@ const Card = ({ card, actionBtn, selectable }) => {
   const imgSrc = cardImages.filter((card) => card.type === card_type)[0].image;
 
   return (
-    <div className="card">
+    <div className="card" data-testid="card">
       <div className="card__img-container">
         <img src={imgSrc} alt={card_type} />
       </div>
       <div className="card__info">
-        <h2 className="card__name">{card_details.name}</h2>
+        <h2 className="card__name" data-testid="card-name">
+          {card_details.name}
+        </h2>
         <ul className="card__features-list">
           {card_features.map((feature, i) => (
             <div key={i}>
-              <li key={i} className="card__feature">
+              <li key={i} className="card__feature" data-testid="card-feature">
                 <i className="fas fa-check"></i> {feature}
               </li>
             </div>
@@ -42,7 +44,9 @@ const Card = ({ card, actionBtn, selectable }) => {
           </Link>
         )}
       </div>
-      <div className="card__credit">{card_details.credit_score} credits</div>
+      <div className="card__credit" data-testid="card-credit">
+        {card_details.credit_score} credits
+      </div>
     </div>
   );
 };
