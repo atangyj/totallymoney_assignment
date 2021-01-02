@@ -20,7 +20,6 @@ export default class CardDetails extends Component {
     fetch(`http://localhost:3001/cards?card_type=${card_type}`)
       .then((resp) => resp.json())
       .then((data) => {
-        console.log(data);
         this.setState({ card: data[0] });
       });
   }

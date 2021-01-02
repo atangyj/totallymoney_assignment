@@ -60,7 +60,11 @@ export default class CheckEligibilityForm extends Component {
             Free From Financial Stress <br />
             With The Right Card
           </Header>
-          <form className="form eligibility-form" ref={this.formRef}>
+          <form
+            className="form eligibility-form"
+            ref={this.formRef}
+            id="check-eligibility-form"
+          >
             <Select
               name="title"
               label="Title"
@@ -120,7 +124,7 @@ export default class CheckEligibilityForm extends Component {
             />
 
             <Button
-              type="button"
+              type="submit"
               onClick={(e) => this.handleClick(e)}
               data-testid="check-eligible-btn"
             >

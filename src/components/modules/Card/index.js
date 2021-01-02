@@ -7,7 +7,6 @@ import './Card.scss';
 const Card = ({ card, actionBtn, selectable }) => {
   const { card_type, card_features, card_name, credit_score } = card;
   const imgSrc = cardImages[card_type];
-  console.log(imgSrc);
 
   return (
     <div className="card" data-testid="card">
