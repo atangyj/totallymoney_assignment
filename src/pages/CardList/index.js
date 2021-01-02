@@ -64,7 +64,7 @@ export default class EligibalCardList extends Component {
     const { cardlist } = this.state;
     const value = cardlist.reduce((acc, curr) => {
       if (curr.selected) {
-        acc = acc + curr.card_details.credit_score;
+        acc = acc + curr.credit_score;
       }
       return acc;
     }, 0);

@@ -5,7 +5,7 @@ import cardImages from 'images/cards';
 import './Card.scss';
 
 const Card = ({ card, actionBtn, selectable }) => {
-  const { card_type, card_details, card_features } = card;
+  const { card_type, card_features, card_name, credit_score } = card;
   const imgSrc = cardImages[card_type];
   console.log(imgSrc);
 
@@ -22,7 +22,7 @@ const Card = ({ card, actionBtn, selectable }) => {
           })}
         >
           <h2 className="card__name" data-testid="card-name">
-            {card_details.name}
+            {card_name}
           </h2>
           <ul className="card__features-list">
             {card_features.map((feature, i) => (
@@ -54,7 +54,7 @@ const Card = ({ card, actionBtn, selectable }) => {
         )}
       </div>
       <div className="card__credit" data-testid="card-credit">
-        {card_details.credit_score} credits
+        {credit_score} credits
       </div>
     </div>
   );

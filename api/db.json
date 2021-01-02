@@ -1,43 +1,43 @@
 {
     "cards": [
         {"card_type": "anywhere_card",
+        "card_name": "Anywhere Card",
         "eligible_check": {},
+        "credit_score": 1200,
         "card_details": {
-            "name": "Anywhere Card",
             "key_facts": [ {"label": "APR", "value": "18%" },
                 {"label": "Balance Transfer Offer", "value": "26 month"}, 
-                {"label": "Purchase Offer", "value": "26 month"}],
-            "credit_score": 1200
+                {"label": "Purchase Offer", "value": "26 month"}]
             },
         "card_features": ["No fee on oversea purchases", "Accepted worldwide", "Worldwide travel insurance"],
         "card_drawbacks": ["Limited balance transfer after 26 months", "High interest rate up to 49%"],
         "eligibility": [{"criterion": "Age", "value": "Over 18" }, {"criterion": "Live in the UK for", "value": "5 yrs" }, {"criterion": "No criminal record", "value": "record" }]
     },
         {"card_type": "liquid_card",
+        "card_name": "Liquid Card",
         "eligible_check": {
             "income_range": {"min": 16000, "max": 100000000}
             },
+        "credit_score": 1800,
         "card_details": {
-            "name": "Liquid Card",
             "key_facts": [ {"label": "APR", "value": "18%" },
                 {"label": "Balance Transfer Offer", "value": "26 month"}, 
-                {"label": "Purchase Offer", "value": "26 month"}],
-            "credit_score": 1800
+                {"label": "Purchase Offer", "value": "26 month"}]
             },
         "card_features": ["Double points for online shopping", "Withdraw up to 800 each month", "Unlimited foreign exchange"],
         "card_drawbacks": ["Limited balance transfer after 26 months", "High interest rate up to 49%"],
         "eligibility": [{"criterion": "Age", "value": "Over 18" }, {"criterion": "Live in the UK for", "value": "5 yrs" }, {"criterion": "No criminal record", "value": "record" }]
             },
         {"card_type": "student_card",
+        "card_name": "Student Card",
         "eligible_check": {
             "employee_status": ["student"]
             },
-        "card_details": {
-            "name": "Student Card",
+        "credit_score": 1000,
+        "card_details": { 
             "key_facts": [ {"label": "APR", "value": "18%" },
                 {"label": "Balance Transfer Offer", "value": "26 month"}, 
-                {"label": "Purchase Offer", "value": "26 month"}],
-            "credit_score": 1000
+                {"label": "Purchase Offer", "value": "26 month"}]
             },
         "card_features": ["Enjoy 100 days return windows", "Student discount immediately"],
         "card_drawbacks": ["Limited balance transfer after 26 months", "High interest rate up to 49%"],

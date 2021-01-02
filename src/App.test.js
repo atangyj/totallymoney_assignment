@@ -81,11 +81,11 @@ test('give mock api response should render card list and show sum of selected cr
     cardlist: [
       {
         card_type: 'anywhere_card',
+        card_name: 'test card one',
         eligible_check: {},
+        credit_score: 1000,
         card_details: {
-          name: 'test card one',
           key_facts: [],
-          credit_score: 1000,
         },
         card_features: ['feature one', 'feature two'],
         card_drawbacks: [],
@@ -93,11 +93,11 @@ test('give mock api response should render card list and show sum of selected cr
       },
       {
         card_type: 'anywhere_card',
+        card_name: 'test card two',
         eligible_check: {},
+        credit_score: 2000,
         card_details: {
-          name: 'test card two',
           key_facts: [],
-          credit_score: 2000,
         },
         card_features: ['feature one', 'feature two'],
         card_drawbacks: [],

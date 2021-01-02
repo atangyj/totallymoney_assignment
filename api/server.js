@@ -40,7 +40,18 @@ server.get('/check-eligible', (req, res) => {
     return results.every((result) => result);
   });
 
-  res.jsonp({ cardlist: eligiblCards });
+  // Only return used data to client
+  const response = eligiblCards.map((card) => {
+    const { card_type, card_name, card_features, credit_score } = card;
+    return {
+      card_type,
+      card_name,
+      card_features,
+      credit_score,
+    };
+  });
+
+  res.jsonp({ cardlist: response });
 });
 
 server.use(router);

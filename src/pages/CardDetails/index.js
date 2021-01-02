@@ -30,6 +30,7 @@ export default class CardDetails extends Component {
       card_features,
       card_drawbacks,
       eligibility,
+      card_name,
     } = this.state.card;
     const { key_facts } = card_details || {};
     const { card_type } = this.props.match.params;
@@ -42,7 +43,7 @@ export default class CardDetails extends Component {
               <div className="card-details__section">
                 <div className="card-container">
                   <img src={imgSrc} alt={card_type} />
-                  <h2 className="card-name">{card_details.name}</h2>
+                  <h2 className="card-name">{card_name}</h2>
                 </div>
 
                 <div className="card-key-facts">
