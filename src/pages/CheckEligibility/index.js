@@ -22,7 +22,6 @@ export default class CheckEligibilityForm extends Component {
       lname: '',
       income: '',
       employeeStatus: '',
-      dob: '',
     };
     this.formRef = React.createRef();
   }
@@ -35,11 +34,11 @@ export default class CheckEligibilityForm extends Component {
   handleClick(e) {
     if (this.formRef.current.checkValidity()) {
       e.preventDefault();
-      this.triggerLink();
+      this.navigateToCardlist();
     }
   }
 
-  triggerLink() {
+  navigateToCardlist() {
     const { income, employeeStatus } = this.state;
     const path = generatePath(
       '/cardlist?employee_status=:status&income_range=:income',
@@ -52,7 +51,7 @@ export default class CheckEligibilityForm extends Component {
   }
 
   render() {
-    const { title, fname, lname, income, employeeStatus, dob } = this.state;
+    const { title, fname, lname, income, employeeStatus } = this.state;
 
     return (
       <Page>

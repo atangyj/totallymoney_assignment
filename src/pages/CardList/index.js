@@ -20,8 +20,8 @@ export default class EligibalCardList extends Component {
 
   componentDidMount() {
     this.setState({ isLoading: true });
-    const qureries = this.props.location.search;
-    fetch(`http://localhost:3001/check-eligible${qureries}`)
+    const queries = this.props.location.search;
+    fetch(`http://localhost:3001/check-eligible${queries}`)
       .then((resp) => resp.json())
       .then((data) => {
         const cardsWithStatus = this.addSelectStatusToCards(data.cardlist);
@@ -37,26 +37,21 @@ export default class EligibalCardList extends Component {
     return result;
   }
 
-  handleClick() {
+  toggleSelectable() {
     const { selectable } = this.state;
     if (selectable) {
-      this.resetSelect();
+      this.unselectAllCards();
     }
     this.setState({ selectable: !selectable });
   }
 
-  handleSelect(i, canSelect) {
-    const { cardlist } = this.state;
-    const newState = cardlist.map((card, index) => {
-      if (index === i) {
-        card.selected = canSelect;
-      }
-      return card;
-    });
-    this.setState({ cardlist: newState });
+  handleCardSelect(i, canSelect) {
+    const cardlist = this.state.cardlist.slice();
+    cardlist[i].selected = canSelect;
+    this.setState({ cardlist });
   }
 
-  resetSelect() {
+  unselectAllCards() {
     const { cardlist } = this.state;
     const newState = cardlist.map((card) => {
       card.selected = false;
@@ -85,10 +80,9 @@ export default class EligibalCardList extends Component {
         key={i}
         card={card}
         selectable={selectable}
-        addCard={() => this.addCard}
         actionBtn={
           <Button
-            onClick={() => this.handleSelect(i, !card.selected)}
+            onClick={() => this.handleCardSelect(i, !card.selected)}
             data-testid="card-select-btn"
           >
             {card.selected ? (
@@ -117,7 +111,7 @@ export default class EligibalCardList extends Component {
               <Button
                 type="button"
                 onClick={() => {
-                  this.handleClick();
+                  this.toggleSelectable();
                 }}
                 data-testid="cardlist-select-btn"
               >

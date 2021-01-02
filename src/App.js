@@ -15,13 +15,13 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Redirect exact from="/" to="/check_eligibility" />
-
         <Route exact path="/check_eligibility" component={CheckEligibility} />
 
         <Route path="/cardlist" component={CardList} />
 
         <Route path="/card_details/:card_type" component={CardDetails} />
+
+        <Redirect to="/check_eligibility" />
       </Switch>
     </Router>
   );

@@ -20,17 +20,20 @@ export default class CardDetails extends Component {
     fetch(`http://localhost:3001/cards?card_type=${card_type}`)
       .then((resp) => resp.json())
       .then((data) => {
+        console.log(data);
         this.setState({ card: data[0] });
       });
   }
   render() {
-    const { card_details, card_features, card_drawbacks, eligibility } =
-      this.state.card || {};
+    const {
+      card_details,
+      card_features,
+      card_drawbacks,
+      eligibility,
+    } = this.state.card;
     const { key_facts } = card_details || {};
     const { card_type } = this.props.match.params;
-    const imgSrc = cardImages.filter((card) => card.type === card_type)[0]
-      .image;
-
+    const imgSrc = cardImages[card_type];
     return (
       <Page>
         <Layout>

@@ -8,63 +8,39 @@ const db = require('./db.json');
 
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
-server.use((req, res, next) => {
-  if (req.method === 'GET') {
-    if (req.url.search(/^\/check-eligible/) !== -1) {
-      const parseURL = (url) => {
-        const pattern = /\?(.*)\b/;
-        const match = pattern.exec(req.url)[1];
-        const params = match.split('&').reduce((acc, curr) => {
-          const keyVal = curr.split('=');
-          acc[keyVal[0]] = keyVal[1];
-          return acc;
-        }, {});
-        return params;
-      };
+server.get('/check-eligible', (req, res) => {
+  const checkEligibility = (eligibleVal, usrVal, property) => {
+    switch (property) {
+      case 'employee_status':
+        return eligibleVal.includes(usrVal);
+        break;
 
-      const checkEligibility = (eligibleVal, usrVal, property) => {
-        switch (property) {
-          case 'employee_status':
-            return eligibleVal.includes(usrVal);
-            break;
+      case 'income_range':
+        return usrVal >= eligibleVal.min;
+        break;
 
-          case 'income_range':
-            return usrVal >= eligibleVal.min;
-            break;
-
-          default:
-            break;
-        }
-      };
-
-      const { cards } = db;
-      const eligiblCards = cards.filter((card) => {
-        const { eligible_check } = card;
-        const usrVals = parseURL(req.url);
-        const results = [];
-        for (const rule in eligible_check) {
-          const checkResult = checkEligibility(
-            eligible_check[rule],
-            usrVals[rule],
-            rule
-          );
-          results.push(checkResult);
-        }
-        return results.every((result) => result);
-      });
-      res.jsonp({ cardlist: eligiblCards });
-    } else if (req.url.search(/^\/card_details\/(.*)/) !== -1) {
-      const cardType = req.url.split('/')[2];
-      const { cards } = db;
-      const card = cards.filter((card) => card.card_type === cardType);
-      res.jsonp({ card: card[0] });
-    } else {
-      next();
+      default:
+        break;
     }
-  } else {
-    // Continue to JSON Server router
-    next();
-  }
+  };
+
+  const { cards } = db;
+  const eligiblCards = cards.filter((card) => {
+    const { eligible_check } = card;
+    const usrVals = req.query;
+    const results = [];
+    for (const rule in eligible_check) {
+      const checkResult = checkEligibility(
+        eligible_check[rule],
+        usrVals[rule],
+        rule
+      );
+      results.push(checkResult);
+    }
+    return results.every((result) => result);
+  });
+
+  res.jsonp({ cardlist: eligiblCards });
 });
 
 server.use(router);
