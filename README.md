@@ -9,7 +9,7 @@
 ```
 $ npm install
 
-// Run commands in different terminals
+# Run commands in different terminals
 $ npm run api
 $ npm start
 ```
