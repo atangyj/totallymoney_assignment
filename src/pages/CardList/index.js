@@ -87,7 +87,10 @@ export default class EligibalCardList extends Component {
         selectable={selectable}
         addCard={() => this.addCard}
         actionBtn={
-          <Button onClick={() => this.handleSelect(i, !card.selected)}>
+          <Button
+            onClick={() => this.handleSelect(i, !card.selected)}
+            data-testid="card-select-btn"
+          >
             {card.selected ? (
               <i className="fas fa-minus"></i>
             ) : (
@@ -108,7 +111,7 @@ export default class EligibalCardList extends Component {
           <div className="cardlist__action-bar">
             <div className="cardlist__action-result">
               <span>Credits </span>
-              {this.setCredits()}
+              <span data-testid="card-total-credits">{this.setCredits()}</span>
             </div>
             <div className="cardlist__action">
               <Button
@@ -116,6 +119,7 @@ export default class EligibalCardList extends Component {
                 onClick={() => {
                   this.handleClick();
                 }}
+                data-testid="cardlist-select-btn"
               >
                 {selectable ? 'Cancel' : 'Select'}
               </Button>

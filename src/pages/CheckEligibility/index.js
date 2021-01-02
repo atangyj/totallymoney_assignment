@@ -53,6 +53,7 @@ export default class CheckEligibilityForm extends Component {
 
   render() {
     const { title, fname, lname, income, employeeStatus, dob } = this.state;
+
     return (
       <Page>
         <Layout>
@@ -72,6 +73,7 @@ export default class CheckEligibilityForm extends Component {
               ]}
               onChange={(e) => this.handleChange(e)}
               required
+              data-testid="select-title"
             />
 
             <TextField
@@ -81,6 +83,7 @@ export default class CheckEligibilityForm extends Component {
               value={fname}
               onChange={(e) => this.handleChange(e)}
               required
+              data-testid="input-fname"
             />
 
             <TextField
@@ -90,6 +93,7 @@ export default class CheckEligibilityForm extends Component {
               value={lname}
               onChange={(e) => this.handleChange(e)}
               required
+              data-testid="input-lname"
             />
 
             <Select
@@ -103,6 +107,7 @@ export default class CheckEligibilityForm extends Component {
               value={employeeStatus}
               onChange={(e) => this.handleChange(e)}
               required
+              data-testid="select-employee-status"
             />
 
             <TextField
@@ -112,9 +117,16 @@ export default class CheckEligibilityForm extends Component {
               value={income}
               onChange={(e) => this.handleChange(e)}
               required
+              data-testid="input-income"
             />
 
-            <Button onClick={(e) => this.handleClick(e)}>Check Validity</Button>
+            <Button
+              type="button"
+              onClick={(e) => this.handleClick(e)}
+              data-testid="check-eligible-btn"
+            >
+              Check Validity
+            </Button>
           </form>
         </Layout>
       </Page>
