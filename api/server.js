@@ -42,11 +42,11 @@ server.use((req, res, next) => {
         const { eligible_check } = card;
         const usrVals = parseURL(req.url);
         const results = [];
-        for (const property in eligible_check) {
+        for (const rule in eligible_check) {
           const checkResult = checkEligibility(
-            eligible_check[property],
-            usrVals[property],
-            property
+            eligible_check[rule],
+            usrVals[rule],
+            rule
           );
           results.push(checkResult);
         }
@@ -54,7 +54,7 @@ server.use((req, res, next) => {
       });
       res.jsonp({ cardlist: eligiblCards });
     } else if (req.url.search(/^\/card_details\/(.*)/) !== -1) {
-      const cardType = req.url.split('/')[2].replace('%20', ' ');
+      const cardType = req.url.split('/')[2];
       const { cards } = db;
       const card = cards.filter((card) => card.card_type === cardType);
       res.jsonp({ card: card[0] });
