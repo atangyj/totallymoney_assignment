@@ -11,5 +11,8 @@ npm start
 npm run test
 
 ## Following is the implemented pages with different status
-
-![Page 1 Check eligibility](/screenshots/form.png)
+![Page 1 Check eligibility](/screenshots/form.png | width=375)
+![Page 2 Eligible cards](/screenshots/list.png | width=375)
+![Page 2 Eligible cards - show total credits of selected cards](/screenshots/list-select.png | width=375)
+![Page 3 Card details](/screenshots/details.png | width=375)
+![Page 3 Card details - desktop view](/screenshots/list.png | width=475)
