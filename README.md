@@ -12,4 +12,4 @@ npm run test
 
 ## Following is the implemented pages with different status
 
-![GitHub Logo](/images/logo.png)
+![Page 1 Check eligibility](/screenshots/form.png)
