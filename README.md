@@ -3,10 +3,13 @@
 - implement RWD with mobile first approach
 - write tests for integration testing
 
-## Start app with following commands in different terminals
+## Start app with following commands
 
 
 ```
+$ npm install
+
+// Run commands in different terminals
 $ npm run api
 $ npm start
 ```
